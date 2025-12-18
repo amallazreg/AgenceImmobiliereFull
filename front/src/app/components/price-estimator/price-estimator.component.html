@@ -1,0 +1,143 @@
+<!-- Background animé -->
+<div class="background-container">
+  <div class="gradient-bg"></div>
+  <div class="grid-overlay"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+<!-- Main content -->
+<div class="main-container">
+  <div class="content-wrapper">
+    <!-- Hero section gauche -->
+    <div class="hero-section">
+      <div class="hero-badge">
+        <span>✨</span>
+        <span>Estimation IA Instantanée</span>
+      </div>
+      
+      <h1 class="hero-title">
+        Estimez votre bien immobilier en temps réel
+      </h1>
+      
+      <p class="hero-description">
+        Obtenez une estimation précise et fiable de votre propriété grâce à notre algorithme d'intelligence artificielle avancé. Rapide, gratuit et sans engagement.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Précision</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Estimations</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5s</div>
+          <div class="stat-label">Temps moyen</div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="floating-icon">🏡</div>
+      </div>
+    </div>
+
+    <!-- Estimator card droite -->
+    <div class="estimator-card">
+      <div class="card-header">
+        <div class="card-icon">🏠</div>
+        <h2 class="card-title">Calculateur de Prix</h2>
+        <p class="card-subtitle">Remplissez les informations ci-dessous</p>
+      </div>
+
+      <form (ngSubmit)="estimate()">
+        <div class="form-group">
+          <label>📏 Surface habitable (m²)</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📐</span>
+            <input 
+              type="number" 
+              [(ngModel)]="surface"
+              name="surface"
+              placeholder="120" 
+              min="0" 
+              required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>🏘️ Type de bien</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🏘️</span>
+            <select 
+              [(ngModel)]="type"
+              name="type"
+              required>
+              <option value="House">Maison</option>
+              <option value="Apartment">Appartement</option>
+              <option value="Villa">Villa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>💼 Type de transaction</label>
+          <div class="input-wrapper">
+            <span class="input-icon">💰</span>
+            <select 
+              [(ngModel)]="transaction"
+              name="transaction"
+              required>
+              <option value="a vendre">À vendre</option>
+              <option value="a louer">À louer</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>📍 Localisation</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🗺️</span>
+            <select 
+              [(ngModel)]="localisation"
+              name="localisation"
+              required>
+              <option value="Tunis">Tunis</option>
+              <option value="Sfax">Sfax</option>
+              <option value="Sousse">Sousse</option>
+              <option value="Monastir">Monastir</option>
+            </select>
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          class="estimate-btn" 
+          [class.loading]="isLoading"
+          [disabled]="isLoading">
+          <span *ngIf="!isLoading">Calculer l'estimation</span>
+        </button>
+      </form>
+
+      <!-- Result section -->
+      <div class="result-section" *ngIf="estimatedPrice !== null && !isLoading">
+        <div class="result-badge">
+          <span>✓</span>
+          <span>Estimation calculée</span>
+        </div>
+        <div class="result-content">
+          <h3 class="result-title">Valeur estimée</h3>
+          <div class="price-display">
+            <div class="price-value">{{ estimatedPrice | number:'1.0-0':'fr-FR' }}</div>
+            <span class="price-currency">TND</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

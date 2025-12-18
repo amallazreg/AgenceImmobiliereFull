@@ -1,1 +1,158 @@
-<app-admin-nav-bar></app-admin-nav-bar>
+
+<body>
+    
+    <div class="dashboard">
+        
+        <div class="header">
+            
+            <h1>🏠 Real Estate Dashboard</h1>
+            <p>Property Statistics & Market Overview</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card rental">
+                <div class="stat-header">
+                    <div class="stat-icon">🏘️</div>
+                    <div class="stat-title">Rental Listings</div>
+                </div>
+                <div class="stat-value">1,247</div>
+                <span class="stat-change positive">↑ 12.5% vs last month</span>
+            </div>
+
+            <div class="stat-card buying">
+                <div class="stat-header">
+                    <div class="stat-icon">🏡</div>
+                    <div class="stat-title">Properties for Sale</div>
+                </div>
+                <div class="stat-value">832</div>
+                <span class="stat-change positive">↑ 8.3% vs last month</span>
+            </div>
+
+            <div class="stat-card selling">
+                <div class="stat-header">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-title">Properties Sold</div>
+                </div>
+                <div class="stat-value">456</div>
+                <span class="stat-change negative">↓ 3.2% vs last month</span>
+            </div>
+
+            <div class="stat-card total">
+                <div class="stat-header">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-title">Total Active Listings</div>
+                </div>
+                <div class="stat-value">2,079</div>
+                <span class="stat-change positive">↑ 9.7% vs last month</span>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-card">
+                <div class="chart-title">Monthly Listings Overview</div>
+                <div class="bar-chart">
+                    <div class="bar" style="height: 65%;">
+                        <div class="bar-value">245</div>
+                        <div class="bar-label">Jan</div>
+                    </div>
+                    <div class="bar" style="height: 80%;">
+                        <div class="bar-value">312</div>
+                        <div class="bar-label">Feb</div>
+                    </div>
+                    <div class="bar" style="height: 75%;">
+                        <div class="bar-value">289</div>
+                        <div class="bar-label">Mar</div>
+                    </div>
+                    <div class="bar" style="height: 90%;">
+                        <div class="bar-value">367</div>
+                        <div class="bar-label">Apr</div>
+                    </div>
+                    <div class="bar" style="height: 85%;">
+                        <div class="bar-value">342</div>
+                        <div class="bar-label">May</div>
+                    </div>
+                    <div class="bar" style="height: 100%;">
+                        <div class="bar-value">398</div>
+                        <div class="bar-label">Jun</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">Average Property Prices</div>
+                <div style="padding: 20px 0;">
+                    <div style="margin-bottom: 20px;">
+                        <div style="color: #666; margin-bottom: 5px;">Rental (Monthly)</div>
+                        <div style="font-size: 1.8em; font-weight: bold; color: #667eea;">$1,850</div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <div style="color: #666; margin-bottom: 5px;">Sale Price</div>
+                        <div style="font-size: 1.8em; font-weight: bold; color: #f5576c;">$385,000</div>
+                    </div>
+                    <div>
+                        <div style="color: #666; margin-bottom: 5px;">Price per Sq Ft</div>
+                        <div style="font-size: 1.8em; font-weight: bold; color: #00f2fe;">$245</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="listings-table">
+            <div class="chart-title">Recent Property Listings</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property ID</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Bedrooms</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#12487</td>
+                        <td>Rental</td>
+                        <td>Downtown, NY</td>
+                        <td>$2,400/mo</td>
+                        <td>2</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>#12486</td>
+                        <td>Sale</td>
+                        <td>Brooklyn, NY</td>
+                        <td>$425,000</td>
+                        <td>3</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>#12485</td>
+                        <td>Rental</td>
+                        <td>Queens, NY</td>
+                        <td>$1,800/mo</td>
+                        <td>1</td>
+                        <td><span class="status-badge status-pending">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>#12484</td>
+                        <td>Sale</td>
+                        <td>Manhattan, NY</td>
+                        <td>$875,000</td>
+                        <td>4</td>
+                        <td><span class="status-badge status-sold">Sold</span></td>
+                    </tr>
+                    <tr>
+                        <td>#12483</td>
+                        <td>Rental</td>
+                        <td>Bronx, NY</td>
+                        <td>$1,650/mo</td>
+                        <td>2</td>
+                        <td><span class="status-badge status-active">Active</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

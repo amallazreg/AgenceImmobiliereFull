@@ -28,6 +28,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { PriceEstimatorComponent } from './components/price-estimator/price-estimator.component';
 
 export function HttpLoaderFactory(http: HttpClient){
   return new TranslateHttpLoader(http) ;
@@ -55,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient){
     AProposComponent,
     ContactComponent,
     FooterComponent,
+    PriceEstimatorComponent,
  
   
   ],

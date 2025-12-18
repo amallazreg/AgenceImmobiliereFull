@@ -1,129 +1,318 @@
-/* Conteneur principal */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ========================================
+   RESET & VARIABLES
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #818cf8;
+    --secondary: #8b5cf6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --info: #06b6d4;
+    
+    --dark: #1e293b;
+    --gray-900: #0f172a;
+    --gray-800: #1e293b;
+    --gray-700: #334155;
+    --gray-600: #475569;
+    --gray-500: #64748b;
+    --gray-400: #94a3b8;
+    --gray-300: #cbd5e1;
+    --gray-200: #e2e8f0;
+    --gray-100: #f1f5f9;
+    --white: #ffffff;
+    
+    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: var(--dark);
+}
+
+/* ========================================
+   MAIN CONTAINER LAYOUT
+======================================== */
+
 .main-container {
     display: flex;
-    height: 100vh;
-    overflow: hidden; /* Évite le défilement horizontal */
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-/* Barre de navigation */
 app-admin-nav-bar {
-    width: 250px; /* Ajustez la largeur selon vos besoins */
-    background-color: #f8f9fa; /* Couleur de fond pour la barre de navigation */
-    height: 100%;
-    position: fixed; /* Fixe la barre de navigation à gauche */
+    width: 280px;
+    background: var(--white);
+    height: 100vh;
+    position: fixed;
     top: 0;
     left: 0;
-    overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
+    overflow-y: auto;
+    box-shadow: var(--shadow-xl);
+    z-index: 1000;
 }
 
-/* Conteneur du contenu */
 #content-wrapper {
-    margin-left: 250px; /* Assurez-vous que cette marge est égale à la largeur de la barre de navigation */
-    width: calc(100% - 250px); /* Ajuste la largeur du contenu pour compenser la barre de navigation */
+    margin-left: 280px;
+    width: calc(100% - 280px);
+    min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Assure que le contenu s'affiche en colonne */
-    height: 100vh;
-    overflow-y: auto; /* Permet le défilement vertical du contenu */
+    flex-direction: column;
 }
 
-/* Partie principale du contenu */
 #content {
     flex: 1;
-    padding: 20px; /* Ajustez les espacements selon vos besoins */
+    padding: 0;
 }
 
-/* Pied de page */
-footer {
-    background-color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    margin-top: auto; /* Positionne le pied de page en bas du conteneur */
+/* ========================================
+   TOPBAR
+======================================== */
+
+.topbar {
+    background: var(--white) !important;
+    box-shadow: var(--shadow-md) !important;
+    padding: 1rem 2rem !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
 }
 
-/* Styles du formulaire */
-.formbold-main-wrapper {
+.topbar h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin: 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.topbar .nav-link {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 48px;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.topbar .nav-link:hover {
+    background: var(--gray-100);
+}
+
+.img-profile {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}
+
+.text-gray-600 {
+    color: var(--gray-600);
+    font-weight: 500;
+}
+
+/* ========================================
+   FORM WRAPPER
+======================================== */
+
+.formbold-main-wrapper {
+    padding: 3rem 2rem;
+    background: transparent;
+    min-height: calc(100vh - 80px);
 }
 
 .formbold-form-wrapper {
-    margin: 0 auto;
-    max-width: 550px;
+    max-width: 900px;
     width: 100%;
-    background: white;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: var(--shadow-2xl);
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   FORM ELEMENTS
+======================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.formbold-mb-5 {
+    margin-bottom: 2rem;
+}
+
+.infield {
+    margin-bottom: 1.5rem;
 }
 
 .formbold-form-label {
     display: block;
-    font-weight: 500;
-    font-size: 16px;
-    color: #07074d;
-    margin-bottom: 12px;
-}
-
-h2 {
-    display: block;
-    font-weight: 500;
-    font-size: 30px;
-    color: #07074d;
-    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .formbold-form-label-2 {
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.formbold-form-input {
+.formbold-form-label-2::before {
+    content: '';
+    width: 5px;
+    height: 30px;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+}
+
+.formbold-form-input,
+.form-control {
     width: 100%;
-    padding: 12px 24px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
-    background: white;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+    background: var(--white);
     font-weight: 500;
-    font-size: 16px;
-    color: #6b7280;
+    font-size: 1rem;
+    color: var(--dark);
     outline: none;
-    resize: none;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
 }
 
-.formbold-form-input:focus {
-    border-color: #6a64f1;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+.formbold-form-input:focus,
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    transform: translateY(-2px);
 }
 
-.formbold-btn {
-    text-align: center;
-    font-size: 16px;
-    border-radius: 6px;
-    padding: 14px 32px;
-    border: none;
-    font-weight: 600;
-    background-color: #6a64f1;
-    color: white;
+.formbold-form-input::placeholder {
+    color: var(--gray-400);
+}
+
+/* ========================================
+   RADIO BUTTONS
+======================================== */
+
+.infield > div {
+    display: flex;
+    gap: 2rem;
+    margin-top: 0.75rem;
+}
+
+.infield label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+    background: var(--white);
+    transition: var(--transition);
+    font-weight: 500;
+    color: var(--gray-700);
 }
 
-.formbold-btn:hover {
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+.infield label:hover {
+    border-color: var(--primary);
+    background: var(--gray-50);
+}
+
+.infield input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.infield input[type="radio"]:checked + label,
+.infield label:has(input[type="radio"]:checked) {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* ========================================
+   FILE UPLOAD AREA
+======================================== */
+
+.mb-6 {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--gray-200);
 }
 
 .formbold-file-input {
-    border: 1px dashed #e0e0e0;
-    border-radius: 6px;
-    min-height: 200px;
+    border: 3px dashed var(--gray-300);
+    border-radius: 20px;
+    min-height: 280px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 48px;
+    padding: 3rem;
     text-align: center;
     position: relative;
-    margin-top: 20px; /* Ajoute de l'espace au-dessus de l'élément */
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    transition: var(--transition);
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.formbold-file-input:hover {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    transform: translateY(-3px);
 }
 
 .formbold-file-input input[type="file"] {
@@ -131,6 +320,9 @@ h2 {
     position: absolute;
     width: 100%;
     height: 100%;
+    cursor: pointer;
+    top: 0;
+    left: 0;
 }
 
 .formbold-file-input label {
@@ -139,95 +331,369 @@ h2 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.formbold-file-input label::before {
+    content: '📁';
+    font-size: 4rem;
+    margin-bottom: 1rem;
 }
 
 .formbold-drop-file {
     display: block;
-    font-weight: 600;
-    color: #07074d;
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 1.3rem;
+    margin: 0;
 }
 
 .formbold-or {
     font-weight: 500;
-    font-size: 16px;
-    color: #6b7280;
+    font-size: 1rem;
+    color: var(--gray-500);
     display: block;
-    margin-bottom: 8px;
+    margin: 0.5rem 0;
 }
 
 .formbold-browse {
-    font-weight: 500;
-    font-size: 16px;
-    color: #07074d;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--primary);
     display: inline-block;
-    padding: 8px 28px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    background: var(--white);
+    transition: var(--transition);
 }
 
-.formbold-file-list {
-    border-radius: 6px;
-    background: #f5f7fb;
-    padding: 16px 32px;
+.formbold-browse:hover {
+    background: var(--primary);
+    color: var(--white);
 }
 
-.formbold-file-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* Image Preview */
+.formbold-file-input img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
 }
 
-.formbold-file-item button {
-    color: #07074d;
-    border: none;
-    background: transparent;
-    cursor: pointer;
+.formbold-file-input img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
 }
 
-.formbold-file-name {
-    font-weight: 500;
-    font-size: 16px;
-    color: #07074d;
-    padding-right: 12px;
-}
+/* ========================================
+   SUBMIT BUTTON
+======================================== */
 
-.formbold-progress-bar {
-    margin-top: 20px;
-    position: relative;
+.formbold-btn {
     width: 100%;
-    height: 6px;
-    border-radius: 8px;
-    background: #e2e5ef;
+    text-align: center;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    padding: 1.25rem 2rem;
+    border: none;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
 }
 
-.formbold-progress {
-    position: absolute;
-    width: 75%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: #6a64f1;
-    border-radius: 8px;
+.formbold-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
-@media (min-width: 540px) {
-    .sm\:w-half {
-        width: 50%;
+.formbold-btn:active {
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   DROPDOWN MENU
+======================================== */
+
+.dropdown-menu {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-xl);
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    transition: var(--transition);
+    font-weight: 500;
+    color: var(--gray-700);
+}
+
+.dropdown-item:hover {
+    background: var(--gray-100);
+    color: var(--primary);
+}
+
+.dropdown-item i {
+    color: var(--gray-400);
+}
+
+.dropdown-divider {
+    margin: 0.5rem 0;
+    border-color: var(--gray-200);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1024px) {
+    app-admin-nav-bar {
+        width: 250px;
+    }
+    
+    #content-wrapper {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+    
+    .formbold-form-wrapper {
+        padding: 2.5rem;
     }
 }
 
-/* add-announcement.component.css */
-.image-preview {
+@media (max-width: 768px) {
+    app-admin-nav-bar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    app-admin-nav-bar.active {
+        transform: translateX(0);
+    }
+    
+    #content-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .topbar {
+        padding: 1rem !important;
+    }
+    
+    .topbar h2 {
+        font-size: 1.4rem;
+    }
+    
+    .formbold-main-wrapper {
+        padding: 2rem 1rem;
+    }
+    
+    .formbold-form-wrapper {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+    
+    .infield > div {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .infield label {
+        width: 100%;
+    }
+    
+    .formbold-file-input {
+        min-height: 240px;
+        padding: 2rem 1.5rem;
+    }
+    
+    .formbold-drop-file {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar h2 {
+        font-size: 1.2rem;
+    }
+    
+    .formbold-form-wrapper {
+        padding: 1.5rem 1rem;
+    }
+    
+    .formbold-form-input,
+    .form-control {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+    
+    .formbold-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .formbold-file-input img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+/* ========================================
+   UTILITIES
+======================================== */
+
+.w-full {
+    width: 100%;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.pt-4 {
+    padding-top: 1.5rem;
+}
+
+.d-flex {
     display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .img-thumbnail {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    object-fit: cover;
-  }
-  
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.shadow {
+    box-shadow: var(--shadow-md);
+}
+
+.static-top {
+    position: relative;
+}
+
+.navbar-expand {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.navbar-light {
+    background-color: var(--white);
+}
+
+.bg-white {
+    background-color: var(--white) !important;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.mr-3 {
+    margin-right: 1rem;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-sm-inline-block {
+    display: inline-block;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========================================
+   ANIMATIONS
+======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.formbold-form-wrapper {
+    animation: fadeIn 0.5s ease;
+}
+
+/* ========================================
+   FOCUS STATES
+======================================== */
+
+*:focus {
+    outline: none;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+/* ========================================
+   SIDEBAR TOGGLE BUTTON
+======================================== */
+
+#sidebarToggleTop {
+    background: none;
+    border: none;
+    color: var(--gray-600);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+#sidebarToggleTop:hover {
+    background: var(--gray-100);
+    color: var(--primary);
+}

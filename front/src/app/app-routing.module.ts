@@ -18,6 +18,7 @@ import { AvendreComponent } from './components/posts/avendre/avendre.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UserProfilComponent } from './components/user-profil/user-profil.component';
+import { PriceEstimatorComponent } from './components/price-estimator/price-estimator.component';
 
 const routes: Routes = [
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: "detailsAnnouce/:id", component: DetailsComponent},
   {path: "aPropos", component: AProposComponent},
   {path: "contact", component: ContactComponent},
+  {path :'priceEstimator', component:PriceEstimatorComponent}
 
  
 
