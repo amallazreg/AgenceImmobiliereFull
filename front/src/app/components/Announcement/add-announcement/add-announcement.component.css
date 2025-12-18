@@ -11,53 +11,43 @@
 }
 
 :root {
-    --primary: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #818cf8;
-    --secondary: #8b5cf6;
+    --primary: #667eea;
+    --primary-dark: #5568d3;
+    --secondary: #764ba2;
     --success: #10b981;
     --danger: #ef4444;
     --warning: #f59e0b;
-    --info: #06b6d4;
     
-    --dark: #1e293b;
-    --gray-900: #0f172a;
-    --gray-800: #1e293b;
-    --gray-700: #334155;
-    --gray-600: #475569;
-    --gray-500: #64748b;
-    --gray-400: #94a3b8;
-    --gray-300: #cbd5e1;
-    --gray-200: #e2e8f0;
-    --gray-100: #f1f5f9;
+    --dark: #2d3748;
+    --gray: #718096;
+    --gray-light: #cbd5e1;
+    --gray-lighter: #e2e8f0;
+    --gray-lightest: #f7fafc;
     --white: #ffffff;
     
-    --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
     
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.3s ease;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: var(--dark);
+    background: var(--gray-lightest);
 }
 
 /* ========================================
-   MAIN CONTAINER LAYOUT
+   MAIN LAYOUT
 ======================================== */
 
 .main-container {
     display: flex;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gray-lightest);
 }
 
 app-admin-nav-bar {
@@ -68,8 +58,9 @@ app-admin-nav-bar {
     top: 0;
     left: 0;
     overflow-y: auto;
-    box-shadow: var(--shadow-xl);
+    box-shadow: var(--shadow-lg);
     z-index: 1000;
+    border-right: 1px solid var(--gray-lighter);
 }
 
 #content-wrapper {
@@ -83,6 +74,7 @@ app-admin-nav-bar {
 #content {
     flex: 1;
     padding: 0;
+    background: var(--gray-lightest);
 }
 
 /* ========================================
@@ -91,34 +83,46 @@ app-admin-nav-bar {
 
 .topbar {
     background: var(--white) !important;
-    box-shadow: var(--shadow-md) !important;
-    padding: 1rem 2rem !important;
-    border-radius: 0 !important;
+    box-shadow: var(--shadow-sm) !important;
+    padding: 1.25rem 2rem !important;
+    border-bottom: 1px solid var(--gray-lighter);
     margin-bottom: 0 !important;
 }
 
 .topbar h2 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--dark);
     margin: 0;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
-.topbar .nav-link {
+#sidebarToggleTop {
+    background: none;
+    border: none;
+    color: var(--gray);
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#sidebarToggleTop:hover {
+    color: var(--primary);
+}
+
+/* Topbar User Dropdown */
+.nav-link {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     transition: var(--transition);
+    text-decoration: none;
 }
 
-.topbar .nav-link:hover {
-    background: var(--gray-100);
+.nav-link:hover {
+    background: var(--gray-lightest);
 }
 
 .img-profile {
@@ -129,8 +133,34 @@ app-admin-nav-bar {
 }
 
 .text-gray-600 {
-    color: var(--gray-600);
+    color: var(--gray);
     font-weight: 500;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-xl);
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    font-weight: 500;
+    color: var(--dark);
+}
+
+.dropdown-item:hover {
+    background: var(--gray-lightest);
+    color: var(--primary);
+}
+
+.dropdown-divider {
+    margin: 0.5rem 0;
+    border-color: var(--gray-lighter);
 }
 
 /* ========================================
@@ -138,9 +168,9 @@ app-admin-nav-bar {
 ======================================== */
 
 .formbold-main-wrapper {
-    padding: 3rem 2rem;
-    background: transparent;
-    min-height: calc(100vh - 80px);
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: calc(100vh - 100px);
 }
 
 .formbold-form-wrapper {
@@ -148,21 +178,10 @@ app-admin-nav-bar {
     width: 100%;
     margin: 0 auto;
     background: var(--white);
-    border-radius: 30px;
+    border-radius: 20px;
     padding: 3rem;
-    box-shadow: var(--shadow-2xl);
-    animation: fadeInUp 0.6s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--gray-lighter);
 }
 
 /* ========================================
@@ -172,7 +191,6 @@ app-admin-nav-bar {
 form {
     display: flex;
     flex-direction: column;
-    gap: 0;
 }
 
 .formbold-mb-5 {
@@ -180,14 +198,14 @@ form {
 }
 
 .infield {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
 .formbold-form-label {
     display: block;
     font-weight: 600;
     font-size: 0.95rem;
-    color: var(--gray-700);
+    color: var(--primary);
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -195,28 +213,22 @@ form {
 
 .formbold-form-label-2 {
     font-weight: 700;
-    font-size: 1.3rem;
-    color: var(--dark);
+    font-size: 1.4rem;
+    color: var(--white);
     margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.formbold-form-label-2::before {
-    content: '';
-    width: 5px;
-    height: 30px;
-    background: var(--gradient-primary);
-    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    background: var(--gradient);
+    border-radius: 12px;
+    display: block;
+    box-shadow: var(--shadow-md);
 }
 
 .formbold-form-input,
 .form-control {
     width: 100%;
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    border: 2px solid var(--gray-200);
+    padding: 0.875rem 1.25rem;
+    border-radius: 10px;
+    border: 2px solid #cbd5e1;
     background: var(--white);
     font-weight: 500;
     font-size: 1rem;
@@ -229,12 +241,11 @@ form {
 .formbold-form-input:focus,
 .form-control:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-    transform: translateY(-2px);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15);
 }
 
 .formbold-form-input::placeholder {
-    color: var(--gray-400);
+    color: var(--gray-light);
 }
 
 /* ========================================
@@ -243,27 +254,31 @@ form {
 
 .infield > div {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-top: 0.75rem;
 }
 
-.infield label {
+.infield > div > label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     cursor: pointer;
-    padding: 0.75rem 1.5rem;
-    border-radius: 12px;
-    border: 2px solid var(--gray-200);
+    padding: 0.875rem 1.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--gray-light);
     background: var(--white);
     transition: var(--transition);
     font-weight: 500;
-    color: var(--gray-700);
+    color: var(--dark);
+    flex: 1;
+    justify-content: center;
 }
 
-.infield label:hover {
+.infield > div > label:hover {
     border-color: var(--primary);
-    background: var(--gray-50);
+    background: rgba(102, 126, 234, 0.08);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
 }
 
 .infield input[type="radio"] {
@@ -273,46 +288,47 @@ form {
     accent-color: var(--primary);
 }
 
-.infield input[type="radio"]:checked + label,
-.infield label:has(input[type="radio"]:checked) {
+.infield > div > label:has(input[type="radio"]:checked) {
     border-color: var(--primary);
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
     color: var(--primary);
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
 }
 
 /* ========================================
-   FILE UPLOAD AREA
+   FILE UPLOAD
 ======================================== */
 
 .mb-6 {
     margin-bottom: 2rem;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 2px solid var(--gray-200);
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 3px solid var(--primary);
 }
 
 .formbold-file-input {
-    border: 3px dashed var(--gray-300);
-    border-radius: 20px;
-    min-height: 280px;
+    border: 3px dashed var(--primary);
+    border-radius: 15px;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
+    padding: 2.5rem;
     text-align: center;
     position: relative;
-    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
     transition: var(--transition);
     cursor: pointer;
     margin-top: 1rem;
 }
 
 .formbold-file-input:hover {
-    border-color: var(--primary);
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-color: var(--secondary);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
 }
 
 .formbold-file-input input[type="file"] {
@@ -323,6 +339,7 @@ form {
     cursor: pointer;
     top: 0;
     left: 0;
+    z-index: 2;
 }
 
 .formbold-file-input label {
@@ -346,44 +363,24 @@ form {
     display: block;
     font-weight: 700;
     color: var(--dark);
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin: 0;
 }
 
-.formbold-or {
-    font-weight: 500;
-    font-size: 1rem;
-    color: var(--gray-500);
-    display: block;
-    margin: 0.5rem 0;
+/* Image Preview Grid */
+.formbold-file-input {
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.formbold-browse {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--primary);
-    display: inline-block;
-    padding: 0.75rem 2rem;
-    border: 2px solid var(--primary);
-    border-radius: 50px;
-    background: var(--white);
-    transition: var(--transition);
-}
-
-.formbold-browse:hover {
-    background: var(--primary);
-    color: var(--white);
-}
-
-/* Image Preview */
 .formbold-file-input img {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    border-radius: 15px;
-    margin: 0.5rem;
+    border-radius: 12px;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
+    border: 3px solid var(--white);
 }
 
 .formbold-file-input img:hover {
@@ -399,66 +396,32 @@ form {
     width: 100%;
     text-align: center;
     font-size: 1.1rem;
-    border-radius: 15px;
-    padding: 1.25rem 2rem;
+    border-radius: 12px;
+    padding: 1.125rem 2rem;
     border: none;
     font-weight: 700;
-    background: var(--gradient-primary);
+    background: var(--gradient);
     color: var(--white);
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow-md);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 1.5rem;
+    letter-spacing: 0.5px;
+    margin-top: 2rem;
+    background-color: #007bff82;
 }
 
 .formbold-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .formbold-btn:active {
-    transform: translateY(-1px);
+    transform: translateY(0);
 }
 
 /* ========================================
-   DROPDOWN MENU
-======================================== */
-
-.dropdown-menu {
-    border: none;
-    border-radius: 15px;
-    box-shadow: var(--shadow-xl);
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.dropdown-item {
-    padding: 0.75rem 1.25rem;
-    border-radius: 10px;
-    transition: var(--transition);
-    font-weight: 500;
-    color: var(--gray-700);
-}
-
-.dropdown-item:hover {
-    background: var(--gray-100);
-    color: var(--primary);
-}
-
-.dropdown-item i {
-    color: var(--gray-400);
-}
-
-.dropdown-divider {
-    margin: 0.5rem 0;
-    border-color: var(--gray-200);
-}
-
-/* ========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ======================================== */
 
 @media (max-width: 1024px) {
@@ -470,16 +433,13 @@ form {
         margin-left: 250px;
         width: calc(100% - 250px);
     }
-    
-    .formbold-form-wrapper {
-        padding: 2.5rem;
-    }
 }
 
 @media (max-width: 768px) {
     app-admin-nav-bar {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
+        z-index: 2000;
     }
     
     app-admin-nav-bar.active {
@@ -500,12 +460,12 @@ form {
     }
     
     .formbold-main-wrapper {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
     }
     
     .formbold-form-wrapper {
         padding: 2rem 1.5rem;
-        border-radius: 20px;
+        border-radius: 15px;
     }
     
     .infield > div {
@@ -513,17 +473,13 @@ form {
         gap: 1rem;
     }
     
-    .infield label {
+    .infield > div > label {
         width: 100%;
     }
     
     .formbold-file-input {
-        min-height: 240px;
+        min-height: 250px;
         padding: 2rem 1.5rem;
-    }
-    
-    .formbold-drop-file {
-        font-size: 1.1rem;
     }
 }
 
@@ -538,7 +494,7 @@ form {
     
     .formbold-form-input,
     .form-control {
-        padding: 0.875rem 1rem;
+        padding: 0.75rem 1rem;
         font-size: 0.95rem;
     }
     
@@ -548,8 +504,8 @@ form {
     }
     
     .formbold-file-input img {
-        width: 90px;
-        height: 90px;
+        width: 100px;
+        height: 100px;
     }
 }
 
@@ -577,6 +533,28 @@ form {
     flex-direction: column;
 }
 
+.d-none {
+    display: none;
+}
+
+.d-sm-inline-block {
+    display: inline-block;
+}
+
+.d-md-none {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .d-md-none {
+        display: block;
+    }
+    
+    .d-none.d-sm-block {
+        display: none;
+    }
+}
+
 .shadow {
     box-shadow: var(--shadow-md);
 }
@@ -590,20 +568,12 @@ form {
     justify-content: flex-start;
 }
 
-.navbar-light {
-    background-color: var(--white);
-}
-
 .bg-white {
     background-color: var(--white) !important;
 }
 
 .ml-auto {
     margin-left: auto;
-}
-
-.mr-auto {
-    margin-right: auto;
 }
 
 .mr-2 {
@@ -614,16 +584,31 @@ form {
     margin-right: 1rem;
 }
 
-.d-none {
-    display: none;
-}
-
-.d-sm-inline-block {
-    display: inline-block;
-}
-
 .rounded-circle {
     border-radius: 50%;
+}
+
+.navbar-light {
+    background-color: var(--white);
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.dropdown-toggle::after {
+    margin-left: 0.5rem;
+}
+
+.no-arrow .dropdown-toggle::after {
+    display: none;
 }
 
 /* ========================================
@@ -635,33 +620,16 @@ form {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--gray-100);
+    background: var(--gray-lightest);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--gradient-primary);
+    background: var(--gradient);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-}
-
-/* ========================================
-   ANIMATIONS
-======================================== */
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.formbold-form-wrapper {
-    animation: fadeIn 0.5s ease;
+    background: linear-gradient(135deg, #5568d3 0%, #6b3f8a 100%);
 }
 
 /* ========================================
@@ -679,21 +647,7 @@ textarea:focus {
     outline: none;
 }
 
-/* ========================================
-   SIDEBAR TOGGLE BUTTON
-======================================== */
-
-#sidebarToggleTop {
-    background: none;
-    border: none;
-    color: var(--gray-600);
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-#sidebarToggleTop:hover {
-    background: var(--gray-100);
-    color: var(--primary);
+*:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
