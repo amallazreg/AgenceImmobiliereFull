@@ -142,15 +142,7 @@
             flex-grow: 1;
         }
 
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .nav-link:hover i {
-            color: var(--primary-light);
-        }
+     
 
         .nav-link.active {
             background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
@@ -206,23 +198,8 @@
             position: relative;
         }
 
-        .collapse-item:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.05);
-            padding-left: 2rem;
-        }
 
-        .collapse-item:hover::before {
-            content: '';
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--primary-light);
-        }
+   
 
         /* Main Content Area */
         #content-wrapper {
@@ -327,10 +304,7 @@
             background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
+     
 
         .stat-header {
             display: flex;
@@ -441,10 +415,7 @@
             transition: var(--transition);
         }
 
-        .bar:hover {
-            opacity: 0.8;
-            transform: scale(1.05);
-        }
+    
 
         .bar-label {
             margin-top: 0.5rem;
@@ -479,10 +450,7 @@
             border-bottom: none;
         }
 
-        .activity-item:hover {
-            background-color: var(--bg-light);
-            border-radius: 0.5rem;
-        }
+    
 
         .activity-icon {
             width: 40px;
@@ -554,18 +522,9 @@
             border: 1px solid var(--border-color);
         }
 
-        .action-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-            color: white;
-        }
+  
 
-        .action-card:hover .action-icon {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
-
+     
         .action-icon {
             width: 60px;
             height: 60px;
@@ -590,10 +549,7 @@
             color: var(--text-light);
         }
 
-        .action-card:hover .action-desc {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
+ 
         /* Performance Metrics */
         .metrics-grid {
             display: grid;
@@ -760,9 +716,7 @@
             border-radius: 3px;
         }
 
-        #accordionSidebar::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
+  
     </style>
 </head>
 
@@ -774,87 +728,11 @@
             <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-user-shield"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Admin Panel</div>
-            </a>
+     
+<app-admin-nav-bar></app-admin-nav-bar>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Management
-            </div>
-
-            <!-- Nav Item - Profile -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProfile">
-                    <i class="fas fa-user-circle"></i>
-                    <span>My Profile</span>
-                </a>
-                <div id="collapseProfile" class="collapse" data-parent="#accordionSidebar">
-                    <div class="collapse-inner">
-                        <a class="collapse-item" href="#">Update Profile</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Announcement -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAnnouncement">
-                    <i class="fas fa-bullhorn"></i>
-                    <span>Announcements</span>
-                </a>
-                <div id="collapseAnnouncement" class="collapse" data-parent="#accordionSidebar">
-                    <div class="collapse-inner">
-                        <a class="collapse-item" href="#">Show All</a>
-                        <a class="collapse-item" href="#">Add New</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Partners -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners">
-                    <i class="fas fa-handshake"></i>
-                    <span>Partners</span>
-                </a>
-                <div id="collapsePartners" class="collapse" data-parent="#accordionSidebar">
-                    <div class="collapse-inner">
-                        <a class="collapse-item" href="#">Show All</a>
-                        <a class="collapse-item" href="#">Add New</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Logout -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
-            </li>
-        </ul>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper">
@@ -892,7 +770,7 @@
                             </div>
                             <span class="stat-change positive">+12.5%</span>
                         </div>
-                        <div class="stat-value">24</div>
+                        <div class="stat-value">9</div>
                         <div class="stat-label">Active Announcements</div>
                         <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.5rem;">Last 30 days</div>
                     </div>
@@ -904,7 +782,7 @@
                             </div>
                             <span class="stat-change positive">+8.3%</span>
                         </div>
-                        <div class="stat-value">48</div>
+                        <div class="stat-value">7</div>
                         <div class="stat-label">Total Partners</div>
                         <div style="font-size: 0.75rem; color: var(--text-light); margin-top: 0.5rem;">5 new this month</div>
                     </div>
@@ -935,109 +813,10 @@
                 </div>
 
                 <!-- Charts Section -->
-                <div class="charts-section">
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3 class="chart-title">Monthly Activity</h3>
-                            <div style="font-size: 0.875rem; color: var(--text-light);">Last 6 months</div>
-                        </div>
-                        <div class="chart-container">
-                            <div class="bar-chart">
-                                <div class="bar-container">
-                                    <div class="bar" style="height: 40%;">
-                                        <span class="bar-value">15</span>
-                                    </div>
-                                    <div class="bar-label">Jan</div>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar" style="height: 60%;">
-                                        <span class="bar-value">22</span>
-                                    </div>
-                                    <div class="bar-label">Feb</div>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar" style="height: 75%;">
-                                        <span class="bar-value">28</span>
-                                    </div>
-                                    <div class="bar-label">Mar</div>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar" style="height: 90%;">
-                                        <span class="bar-value">34</span>
-                                    </div>
-                                    <div class="bar-label">Apr</div>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar" style="height: 65%;">
-                                        <span class="bar-value">24</span>
-                                    </div>
-                                    <div class="bar-label">May</div>
-                                </div>
-                                <div class="bar-container">
-                                    <div class="bar" style="height: 100%;">
-                                        <span class="bar-value">48</span>
-                                    </div>
-                                    <div class="bar-label">Jun</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <div class="chart-header">
-                            <h3 class="chart-title">Recent Activity</h3>
-                            <div style="font-size: 0.875rem; color: var(--text-light);">Today</div>
-                        </div>
-                        <div class="chart-container">
-                            <ul class="activity-list">
-                                <li class="activity-item">
-                                    <div class="activity-icon" style="background: #dbeafe; color: #1e40af;">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-title">New partner added</div>
-                                        <div class="activity-time">10:30 AM</div>
-                                    </div>
-                                    <span class="activity-badge badge-success">Completed</span>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon" style="background: #fef3c7; color: #92400e;">
-                                        <i class="fas fa-edit"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-title">Announcement updated</div>
-                                        <div class="activity-time">09:15 AM</div>
-                                    </div>
-                                    <span class="activity-badge badge-warning">In Progress</span>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon" style="background: #d1fae5; color: #065f46;">
-                                        <i class="fas fa-user-check"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-title">Profile information updated</div>
-                                        <div class="activity-time">Yesterday, 4:30 PM</div>
-                                    </div>
-                                    <span class="activity-badge badge-success">Completed</span>
-                                </li>
-                                <li class="activity-item">
-                                    <div class="activity-icon" style="background: #e0e7ff; color: #3730a3;">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <div class="activity-content">
-                                        <div class="activity-title">Monthly report generated</div>
-                                        <div class="activity-time">Yesterday, 2:00 PM</div>
-                                    </div>
-                                    <span class="activity-badge badge-info">System</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+               
                 <!-- Quick Actions -->
                 <div class="quick-actions">
-                    <a href="#" class="action-card">
+                    <a href="/addAnnouncement" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-plus-circle"></i>
                         </div>
@@ -1045,7 +824,7 @@
                         <div class="action-desc">Create new announcements for users</div>
                     </a>
                     
-                    <a href="#" class="action-card">
+                    <a href="/addPartner" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-user-plus"></i>
                         </div>
@@ -1053,7 +832,7 @@
                         <div class="action-desc">Register new partners to the system</div>
                     </a>
                     
-                    <a href="#" class="action-card">
+                    <a href="/getAllAnnouncement" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-list-alt"></i>
                         </div>
@@ -1061,7 +840,7 @@
                         <div class="action-desc">Browse and manage all announcements</div>
                     </a>
                     
-                    <a href="#" class="action-card">
+                    <a href="/getAllpartenaires" class="action-card">
                         <div class="action-icon">
                             <i class="fas fa-users"></i>
                         </div>
@@ -1071,46 +850,7 @@
                 </div>
 
                 <!-- Performance Metrics -->
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <h3 class="chart-title">System Usage</h3>
-                        <div class="metric-value">2.4K</div>
-                        <div class="stat-label">Total visits this month</div>
-                        <div class="metric-progress">
-                            <div class="progress-bar" style="width: 78%;"></div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
-                            <span>Target: 3K visits</span>
-                            <span style="color: var(--primary-color); font-weight: 600;">78%</span>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-card">
-                        <h3 class="chart-title">Response Time</h3>
-                        <div class="metric-value">0.8s</div>
-                        <div class="stat-label">Average server response</div>
-                        <div class="metric-progress">
-                            <div class="progress-bar" style="width: 92%;"></div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
-                            <span>Target: &lt;1s</span>
-                            <span style="color: var(--primary-color); font-weight: 600;">Excellent</span>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-card">
-                        <h3 class="chart-title">Storage Usage</h3>
-                        <div class="metric-value">65%</div>
-                        <div class="stat-label">Of total storage capacity</div>
-                        <div class="metric-progress">
-                            <div class="progress-bar" style="width: 65%; background: linear-gradient(90deg, #10b981, #34d399);"></div>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem;">
-                            <span>Used: 325GB of 500GB</span>
-                            <span style="color: #10b981; font-weight: 600;">Optimal</span>
-                        </div>
-                    </div>
-                </div>
+          
             </div>
         </div>
         <!-- End of Content Wrapper -->
@@ -1233,35 +973,9 @@
             observer.observe(statsSection);
         }
 
-        // Bar chart hover effects
-        document.querySelectorAll('.bar').forEach(bar => {
-            bar.addEventListener('mouseenter', function() {
-                const value = this.querySelector('.bar-value');
-                if (value) {
-                    value.style.fontWeight = 'bold';
-                    value.style.transform = 'translateX(-50%) scale(1.1)';
-                }
-            });
-            
-            bar.addEventListener('mouseleave', function() {
-                const value = this.querySelector('.bar-value');
-                if (value) {
-                    value.style.fontWeight = '600';
-                    value.style.transform = 'translateX(-50%) scale(1)';
-                }
-            });
-        });
+   
 
-        // Add hover effect to action cards
-        document.querySelectorAll('.action-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+ 
 
         // Simulate real-time updates for activity feed
         const activities = [

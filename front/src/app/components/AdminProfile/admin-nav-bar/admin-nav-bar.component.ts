@@ -19,6 +19,11 @@ export class AdminNavBarComponent implements OnInit{
     
   }
 
-  
+  announcementOpen = false;
+
+toggleAnnouncement() {
+  this.announcementOpen = !this.announcementOpen;
+}
+
 
 }
