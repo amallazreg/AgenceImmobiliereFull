@@ -1,5 +1,8 @@
-<!-- Background animé -->
-<div class="background-container">
+<app-navbar></app-navbar>
+
+
+<div class="price-estimator">
+ <div class="background-container">
   <div class="gradient-bg"></div>
   <div class="grid-overlay"></div>
   <div class="particle"></div>
@@ -55,89 +58,61 @@
         <p class="card-subtitle">Remplissez les informations ci-dessous</p>
       </div>
 
-      <form (ngSubmit)="estimate()">
-        <div class="form-group">
-          <label>📏 Surface habitable (m²)</label>
-          <div class="input-wrapper">
-            <span class="input-icon">📐</span>
-            <input 
-              type="number" 
-              [(ngModel)]="surface"
-              name="surface"
-              placeholder="120" 
-              min="0" 
-              required>
-          </div>
-        </div>
+  <div class="form-section">
+    <div class="form-group">
+      <label>Surface habitable</label>
+      <input 
+        type="number" 
+        [(ngModel)]="surface"
+        placeholder="120"
+        min="0">
+    </div>
 
-        <div class="form-group">
-          <label>🏘️ Type de bien</label>
-          <div class="input-wrapper">
-            <span class="input-icon">🏘️</span>
-            <select 
-              [(ngModel)]="type"
-              name="type"
-              required>
-              <option value="House">Maison</option>
-              <option value="Apartment">Appartement</option>
-              <option value="Villa">Villa</option>
-            </select>
-          </div>
-        </div>
+    <div class="form-group">
+      <label>Type de bien</label>
+      <select [(ngModel)]="type">
+        <option value="House">Maison</option>
+        <option value="Apartment">Appartement</option>
+        <option value="Villa">Villa</option>
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>💼 Type de transaction</label>
-          <div class="input-wrapper">
-            <span class="input-icon">💰</span>
-            <select 
-              [(ngModel)]="transaction"
-              name="transaction"
-              required>
-              <option value="a vendre">À vendre</option>
-              <option value="a louer">À louer</option>
-            </select>
-          </div>
-        </div>
+    <div class="form-group">
+      <label>Type de transaction</label>
+      <select [(ngModel)]="transaction">
+        <option value="a vendre">À vendre</option>
+        <option value="a louer">À louer</option>
+      </select>
+    </div>
 
-        <div class="form-group">
-          <label>📍 Localisation</label>
-          <div class="input-wrapper">
-            <span class="input-icon">🗺️</span>
-            <select 
-              [(ngModel)]="localisation"
-              name="localisation"
-              required>
-              <option value="Tunis">Tunis</option>
-              <option value="Sfax">Sfax</option>
-              <option value="Sousse">Sousse</option>
-              <option value="Monastir">Monastir</option>
-            </select>
-          </div>
-        </div>
+    <div class="form-group">
+      <label>Localisation</label>
+      <select [(ngModel)]="localisation">
+        <option value="Tunis">Tunis</option>
+        <option value="Sfax">Sfax</option>
+        <option value="Sousse">Sousse</option>
+        <option value="Monastir">Monastir</option>
+      </select>
+    </div>
 
-        <button 
-          type="submit" 
-          class="estimate-btn" 
-          [class.loading]="isLoading"
-          [disabled]="isLoading">
-          <span *ngIf="!isLoading">Calculer l'estimation</span>
-        </button>
-      </form>
+    <button 
+      (click)="estimate()"
+      [class.loading]="isLoading"
+      class="estimate-btn" >
+      <span *ngIf="!isLoading">Calculer l'estimation</span>
+    </button>
+  </div>
 
-      <!-- Result section -->
-      <div class="result-section" *ngIf="estimatedPrice !== null && !isLoading">
-        <div class="result-badge">
-          <span>✓</span>
-          <span>Estimation calculée</span>
-        </div>
-        <div class="result-content">
-          <h3 class="result-title">Valeur estimée</h3>
-          <div class="price-display">
-            <div class="price-value">{{ estimatedPrice | number:'1.0-0':'fr-FR' }}</div>
-            <span class="price-currency">TND</span>
-          </div>
-        </div>
+  <div class="result-card" *ngIf="estimatedPrice">
+    <div class="result-badge">✓ Estimation</div>
+    <div class="result-content">
+      <h3>Valeur estimée</h3>
+      <div class="price-value">
+        {{ estimatedPrice | number:'1.0-0' }} 000
       </div>
+      <span class="price-currency"> TND</span>
     </div>
   </div>
 </div>
+
+
